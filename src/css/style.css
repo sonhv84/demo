@@ -1,0 +1,11 @@
+@import url('base/variables.css');
+
+@import url('base/reset.css');
+@import url('base/font.css');
+@import url('base/icon.css');
+
+@import url('components/header.css');
+@import url('components/footer.css');
+@import url('components/service-card.css');
+@import url('components/price-table.css');
+@import url('components/news-card.css');
