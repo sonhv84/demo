@@ -1,3 +1,7 @@
+// ===============================
+// SEARCH PLACEHOLDER EFFECT
+// ===============================
+
 export function initSearchPlaceholder() {
   const input = document.querySelector('.search-box input');
   if (!input) return;
@@ -45,6 +49,7 @@ export function initSearchPlaceholder() {
 
   typeEffect();
 
+  // Người dùng nhập → dừng animation
   input.addEventListener('input', () => {
     stopped = true;
     input.placeholder = 'Nhập từ khóa tìm kiếm…';
