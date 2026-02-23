@@ -1,20 +1,398 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Bảng giá - Điện Lạnh Bách Khoa</title>
 
-          <link rel="stylesheet" href="./src/css/style.css">
-          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng giá - Điện Lạnh Bách Khoa</title>
+
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary-blue: #065087;
+            --accent-yellow: #ffb400;
+            --bg-gray: #f8fafc;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- JS Animation Setup --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HERO SECTION: Nền tảng cân đối --- */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #033a63 100%);
+            padding: 100px 20px 140px; /* Padding dưới cao để tạo khoảng gối */
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content .badge {
+            background: rgba(255, 180, 0, 0.15);
+            color: var(--accent-yellow);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--accent-yellow);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- MAIN CONTAINER: Gối lên Hero --- */
+        .main-container {
+            max-width: 1200px;
+            margin: -80px auto 100px; /* Đẩy lên trên Hero */
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Thông báo */
+        .alert-box {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-left: 6px solid var(--accent-yellow);
+            margin-bottom: 50px;
+        }
+
+        .alert-box i { color: var(--accent-yellow); font-size: 24px; }
+
+        /* --- SERVICE SECTIONS --- */
+        .category-group {
+            margin-bottom: 80px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .category-header .icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: var(--accent-yellow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 5px 15px rgba(6, 80, 135, 0.2);
+        }
+
+        .category-header h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* GRID BẢNG GIÁ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .card-title {
+            background: #fcfcfc;
+            padding: 20px 25px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price-list {
+            padding: 10px 0;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .price-item:last-child { border-bottom: none; }
+
+        .service-name { color: var(--text-muted); font-size: 15px; }
+        .service-price { color: var(--primary-blue); font-weight: 700; font-size: 16px; }
+
+        /* --- FOOTER CTA --- */
+        .cta-section {
+            background: var(--primary-blue);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin-top: 100px;
+            box-shadow: 0 20px 50px rgba(6, 80, 135, 0.3);
+        }
+
+        .cta-section h3 { font-size: 32px; margin-bottom: 15px; }
+
+        .btn-call-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 20px 45px;
+            border-radius: 15px;
+            font-size: 26px;
+            font-weight: 900;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 180, 0, 0.2);
+        }
+
+        .btn-call-large:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .hero-banner { padding: 70px 20px 120px; }
+            .main-container { margin-top: -60px; }
+            .btn-call-large { font-size: 20px; width: 100%; box-sizing: border-box; justify-content: center; }
+        }
+    </style>
 </head>
+
 <body>
-          <div id="header"></div>
-          <main>
-                    <h1>Trang bảng giá</h1>
-          </main>
-          <div id="footer"></div>
+    <div id="header"></div>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="badge">Niêm yết 2026</span>
+            <h1>BẢNG GIÁ DỊCH VỤ</h1>
+            <p>Minh bạch từng khoản chi phí - Khảo sát tận nơi hoàn toàn miễn phí - Bảo hành dài hạn.</p>
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <div class="alert-box reveal">
+            <i class="fas fa-shield-check"></i>
+            <div>
+                <strong>Báo giá minh bạch:</strong> Kỹ thuật viên sẽ kiểm tra trực tiếp và báo giá chính xác theo tình trạng máy. Chúng tôi cam kết không phát sinh chi phí ngoài báo giá.
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-header reveal">
+                <div class="icon-box"><i class="fas fa-snowflake"></i></div>
+                <h2>1. Dịch vụ Điều Hòa</h2>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card reveal">
+                    <div class="card-title">Vệ sinh & Bảo dưỡng <span><i class="fas fa-sparkles"></i></span></div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Máy treo tường (1.0 - 1.5 HP)</span>
+                            <span class="service-price">200.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Máy treo tường (2.0 - 2.5 HP)</span>
+                            <span class="service-price">250.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Máy Âm trần / Áp trần</span>
+                            <span class="service-price">450.000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-card reveal">
+                    <div class="card-title">Sửa chữa & Thay thế <span><i class="fas fa-tools"></i></span></div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Xử lý chảy nước dàn lạnh</span>
+                            <span class="service-price">150.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Thay tụ Block (K3)</span>
+                            <span class="service-price">450.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Nạp Gas bổ sung (R32/R410)</span>
+                            <span class="service-price">Từ 200.000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-header reveal">
+                <div class="icon-box"><i class="fas fa-home-lg-alt"></i></div>
+                <h2>2. Tủ Lạnh & Máy Giặt</h2>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card reveal">
+                    <div class="card-title">Dịch vụ Tủ Lạnh</div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Vệ sinh & Khử khuẩn</span>
+                            <span class="service-price">200.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Thay sò lạnh / sò nóng</span>
+                            <span class="service-price">350.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Sửa Board mạch Inverter</span>
+                            <span class="service-price">Từ 650.000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-card reveal">
+                    <div class="card-title">Dịch vụ Máy Giặt</div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Vệ sinh máy cửa trên</span>
+                            <span class="service-price">300.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Vệ sinh máy cửa ngang</span>
+                            <span class="service-price">500.000đ</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Thay van cấp nước</span>
+                            <span class="service-price">350.000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section reveal">
+            <h3>Đặt lịch ngay - Có mặt sau 15 phút</h3>
+            <p>Đội ngũ kỹ thuật viên tay nghề cao, phục vụ khắp các quận huyện Hà Nội</p>
+            <a href="tel:0367274152" class="btn-call-large" id="mainCallBtn">
+                <i class="fas fa-phone-alt"></i>
+                0367 274 152
+            </a>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="./src/js/main.js"></script>
+
+    <script>
+        // --- HIỆU ỨNG JS THUẦN ---
+
+        // 1. Reveal on Scroll (Sử dụng Intersection Observer)
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 2. Hiệu ứng Click cho Price Card (Phản hồi người dùng)
+        document.querySelectorAll('.price-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // 3. Hiệu ứng rung nhẹ cho Button Call định kỳ
+        const callBtn = document.getElementById('mainCallBtn');
+        function shakeBtn() {
+            callBtn.style.transform = 'rotate(2deg) scale(1.05)';
+            setTimeout(() => { callBtn.style.transform = 'rotate(-2deg) scale(1.05)'; }, 100);
+            setTimeout(() => { callBtn.style.transform = 'rotate(0) scale(1.05)'; }, 200);
+            setTimeout(() => { callBtn.style.transform = ''; }, 300);
+        }
+        setInterval(shakeBtn, 4000);
+    </script>
 </body>
-<script type="module" src="./src/js/main.js"></script>
+
 </html>

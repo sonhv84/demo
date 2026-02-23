@@ -4,31 +4,407 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang chủ</title>
+  <title>Trang chủ | Điện Lạnh Bách Khoa</title>
 
-  <!-- Favicon cơ bản -->
   <link rel="icon" href="./src/assets/favicon/favicon.ico" type="image/x-icon" />
-  <!-- PNG favicon -->
   <link rel="icon" type="image/png" sizes="16x16" href="./src/assets/favicon/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/favicon/favicon-32x32.png" />
-  <!-- Apple -->
   <link rel="apple-touch-icon" href="./src/assets/favicon/apple-touch-icon.png" />
-  <!-- Android / PWA -->
   <link rel="manifest" href="./src/assets/favicon/site.webmanifest" />
 
   <link rel="stylesheet" href="./src/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-blue: #065087;
+      --accent-yellow: #ffb400;
+      --bg-gray: #f4f7f9;
+      --text-dark: #2d3436;
+      --white: #ffffff;
+      --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: var(--bg-gray);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Hiệu ứng Reveal JS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: var(--transition);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 85vh;
+      background: linear-gradient(rgba(6, 80, 135, 0.8), rgba(6, 80, 135, 0.9)),
+        url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 0 20px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .hero-inner h1 {
+      font-size: clamp(36px, 7vw, 64px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero-inner p {
+      font-size: clamp(16px, 2vw, 20px);
+      margin-bottom: 35px;
+      opacity: 0.9;
+    }
+
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent-yellow);
+      color: var(--primary-blue);
+      padding: 18px 35px;
+      border-radius: 12px;
+      font-weight: 900;
+      text-decoration: none;
+      font-size: 20px;
+      box-shadow: 0 10px 20px rgba(255, 180, 0, 0.3);
+      transition: var(--transition);
+    }
+
+    .btn-call:hover {
+      transform: translateY(-5px);
+      background: var(--white);
+    }
+
+    /* OVERLAP BOXES */
+    .overlap-container {
+      max-width: 1140px;
+      margin: -60px auto 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .stat-card {
+      background: var(--white);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      border-bottom: 5px solid var(--accent-yellow);
+    }
+
+    .stat-card i {
+      font-size: 30px;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .stat-card strong {
+      font-size: 32px;
+      display: block;
+      color: var(--primary-blue);
+    }
+
+    /* SERVICES */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      padding: 0 20px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: var(--primary-blue);
+      font-weight: 900;
+    }
+
+    .service-grid {
+      max-width: 1200px;
+      margin: 0 auto 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      transition: var(--transition);
+      border: 1px solid #f0f0f0;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-yellow);
+    }
+
+    .service-card h3 {
+      color: var(--primary-blue);
+      font-size: 22px;
+      margin-top: 20px;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+      margin: 80px 20px;
+      border-radius: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        padding: 120px 20px 100px;
+      }
+
+      .overlap-container {
+        margin-top: 20px;
+      }
+    }
+
+   /* ==================== ICON DÍNH BÊN PHẢI - HIỆU ỨNG MẠNH ==================== */
+.floating-contacts {
+  position: fixed;
+  right: 20px;
+  bottom: 100px; /* Chỉnh lại vị trí để không bị che */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng vòng tròn lan tỏa (Pulse) */
+.contact-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse-ring 1.5s infinite;
+}
+
+/* Màu sắc và hiệu ứng riêng cho từng nút */
+.contact-btn.phone {
+  background: #e62e2d; /* Màu đỏ nổi bật cho cuộc gọi */
+}
+.contact-btn.phone::before { background-color: rgba(230, 46, 45, 0.5); }
+
+.contact-btn.zalo {
+  background: #0068ff;
+}
+.contact-btn.zalo::before { background-color: rgba(0, 104, 255, 0.5); }
+
+/* Hiệu ứng rung lắc mỗi 3 giây */
+.contact-btn i {
+  animation: fan-shake 3s infinite ease-in-out;
+}
+
+/* Label hiện ra khi hover */
+.contact-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 75px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.contact-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact-btn:hover {
+  transform: scale(1.1);
+}
+
+/* KEYFRAMES ANIMATIONS */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes fan-shake {
+  0%, 90%, 100% { transform: rotate(0deg); }
+  92% { transform: rotate(15deg); }
+  94% { transform: rotate(-15deg); }
+  96% { transform: rotate(15deg); }
+  98% { transform: rotate(-15deg); }
+}
+
+@media (max-width: 768px) {
+  .floating-contacts { right: 10px; bottom: 80px; }
+  .contact-btn { width: 50px; height: 50px; font-size: 22px; }
+}
+    
+  </style>
 </head>
 
 <body>
   <div id="header"></div>
+
   <main>
-    <h1>Trang chủ</h1>
+    <section class="hero">
+      <div class="hero-inner reveal">
+        <h1>ĐIỆN LẠNH BÁCH KHOA<br>UY TÍN TỪ 2014</h1>
+        <p>Dịch vụ sửa chữa Điều Hòa - Tủ Lạnh - Máy Giặt chuyên nghiệp tại Hà Nội. Có mặt sau 15 phút gọi điện.</p>
+        <a href="tel:0367274152" class="btn-call">
+          <i class="fas fa-phone-alt"></i> 0367 274 152
+        </a>
+      </div>
+    </section>
+
+    <section class="overlap-container">
+      <div class="stat-card reveal">
+        <i class="fas fa-user-check"></i>
+        <strong>10+ Năm</strong>
+        <span>Kinh nghiệm kỹ thuật</span>
+      </div>
+      <div class="stat-card reveal" style="transition-delay: 0.1s;">
+        <i class="fas fa-bolt"></i>
+        <strong>15 - 30 Phút</strong>
+        <span>Tốc độ phục vụ</span>
+      </div>
+      <div class="stat-card reveal" style="transition-delay: 0.2s;">
+        <i class="fas fa-shield-alt"></i>
+        <strong>12 Tháng</strong>
+        <span>Bảo hành chính hãng</span>
+      </div>
+    </section>
+
+    <section class="section-title reveal">
+      <h2>Dịch Vụ Của Chúng Tôi</h2>
+      <p>Chuyên nghiệp - Minh bạch - Giá rẻ hơn 20%</p>
+    </section>
+
+    <section class="service-grid">
+      <div class="service-card reveal">
+        <i class="fas fa-snowflake" style="font-size: 40px; color: var(--accent-yellow);"></i>
+        <h3>Sửa Điều Hòa</h3>
+        <p>Vệ sinh, nạp gas, sửa lỗi máy không mát, chảy nước, mất nguồn.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay: 0.1s;">
+        <i class="fas fa-ice-cream" style="font-size: 40px; color: var(--accent-yellow);"></i>
+        <h3>Sửa Tủ Lạnh</h3>
+        <p>Xử lý tủ không đông đá, thay Block, nạp gas tủ lạnh các hãng.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay: 0.2s;">
+        <i class="fas fa-sync-alt" style="font-size: 40px; color: var(--accent-yellow);"></i>
+        <h3>Sửa Máy Giặt</h3>
+        <p>Bảo dưỡng, sửa máy không vắt, không cấp nước, kêu to rung lắc.</p>
+      </div>
+    </section>
+
+    <section class="final-cta reveal">
+      <h2 style="font-size: 32px; margin-bottom: 20px;">Sẵn sàng hỗ trợ bạn 24/7</h2>
+      <p style="margin-bottom: 30px; opacity: 0.8;">Đừng để cái nóng làm phiền gia đình bạn. Gọi ngay để được tư vấn
+        miễn phí.</p>
+      <a href="tel:0367274152" class="btn-call">
+        GỌI NGAY: 0367 274 152
+      </a>
+    </section>
   </main>
+
+  <!-- ICON DÍNH BÊN PHẢI MỚI - GỌI + ZALO -->
+<div class="floating-contacts">
+  <a href="tel:0367274152" class="contact-btn phone" data-label="Gọi ngay: 0367 274 152">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+
+  <a href="https://zalo.me/0367274152" target="_blank" rel="noopener" class="contact-btn zalo" data-label="Chat Zalo hỗ trợ">
+    <i class="fas fa-comment-dots"></i>
+  </a>
+</div>
+
   <div id="footer"></div>
+
+  <script type="module" src="./src/js/main.js"></script>
+
+  <script>
+    // JavaScript thuần làm hiệu ứng Reveal khi cuộn
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+
+    
+  </script>
 </body>
 
-<script type="module" src="./src/js/main.js"></script>
 </html>

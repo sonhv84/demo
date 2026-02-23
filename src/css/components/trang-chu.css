@@ -1,0 +1,84 @@
+:root {
+  --primary-blue: #005696;
+  --footer-bg: #1a3a5a;
+  --accent-cyan: #40e0d0;
+  --accent-yellow: #ffb400;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --white: #ffffff;
+}
+
+.tail-container {
+  font-family: "Inter", system_ui, sans-serif;
+}
+
+.logo-font {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.hero-bg {
+  background:
+    linear-gradient(rgba(0, 86, 150, 0.78), rgba(0, 86, 150, 0.88)),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=90")
+      center/cover no-repeat;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+}
+
+.service-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-20px) scale(1.03);
+  box-shadow: 0 25px 50px -12px rgb(0 86 150 / 0.25);
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--primary-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.marquee-vertical {
+  animation: marquee-vertical 30s linear infinite; /* càng lớn số giây càng chậm */
+}
