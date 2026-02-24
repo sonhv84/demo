@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa chữa bình nóng lạnh</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, #005aa7, #007adf);
+            color: #fff;
+            padding: 28px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+            padding: 0 16px;
+        }
+
+        /* ===== MENU LEFT ===== */
+        .menu {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .menu h3 {
+            font-size: 18px;
+            margin-bottom: 14px;
+            color: #005aa7;
+        }
+
+        .menu ul {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #1f2937;
+            background: #f1f5f9;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            background: linear-gradient(135deg, #005aa7, #007adf);
+            color: #fff;
+            transform: translateX(4px);
+        }
+
+        /* ===== CONTENT RIGHT ===== */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 6px solid #007adf;
+        }
+
+        section h2 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: #005aa7;
+        }
+
+        section p {
+            margin-bottom: 14px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 14px;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .box strong {
+            color: #d97706;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 40px;
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 18px;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DỊCH VỤ SỬA CHỮA BÌNH NÓNG LẠNH</h1>
+    <p>An toàn – Chuyên nghiệp – Hiệu quả lâu dài</p>
+</header>
+
+<div class="container">
+    <!-- MENU LEFT -->
+    <nav class="menu">
+        <h3>Danh mục nội dung</h3>
+        <ul>
+            <li><a href="#gioi-thieu">Giới thiệu dịch vụ</a></li>
+            <li><a href="#khong-nong">Bình không nóng</a></li>
+            <li><a href="#ro-dien">Bình bị rò điện</a></li>
+            <li><a href="#ro-nuoc">Bình rò rỉ nước</a></li>
+            <li><a href="#bao-duong">Bảo dưỡng định kỳ</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT RIGHT -->
+    <main>
+
+        <section id="gioi-thieu">
+            <h2>Giới thiệu dịch vụ sửa chữa bình nóng lạnh</h2>
+            <p>
+                Bình nóng lạnh là thiết bị thiết yếu trong sinh hoạt hằng ngày, đặc biệt trong điều kiện thời tiết lạnh
+                hoặc các khu vực có nhu cầu sử dụng nước nóng thường xuyên. Tuy nhiên, sau một thời gian vận hành,
+                thiết bị có thể phát sinh các sự cố ảnh hưởng đến hiệu suất cũng như mức độ an toàn.
+            </p>
+            <p>
+                Dịch vụ sửa chữa bình nóng lạnh của chúng tôi được triển khai theo quy trình kỹ thuật nghiêm ngặt,
+                tập trung xử lý triệt để nguyên nhân gốc rễ, đảm bảo thiết bị vận hành ổn định và an toàn lâu dài.
+            </p>
+        </section>
+
+        <section id="khong-nong">
+            <h2>Bình nóng lạnh không làm nóng nước</h2>
+            <p>
+                Tình trạng bình nóng lạnh không nóng thường bắt nguồn từ các nguyên nhân như hỏng thanh đốt,
+                bộ điều nhiệt gặp sự cố, nguồn điện cấp không ổn định hoặc linh kiện bị xuống cấp do cặn bám lâu ngày.
+            </p>
+            <div class="box">
+                <p><strong>Hướng xử lý:</strong> Kiểm tra hệ thống điện, đo thông số thanh đốt,
+                thay thế linh kiện hư hỏng và vệ sinh bình nhằm khôi phục khả năng làm nóng.</p>
+            </div>
+        </section>
+
+        <section id="ro-dien">
+            <h2>Bình nóng lạnh bị rò điện – Mất an toàn</h2>
+            <p>
+                Rò điện là sự cố nghiêm trọng, tiềm ẩn nguy cơ tai nạn điện giật. Nguyên nhân thường do dây điện bị hở,
+                thanh đốt rạn nứt hoặc hệ thống chống giật ELCB không còn hoạt động chính xác.
+            </p>
+            <div class="box">
+                <p><strong>Khuyến cáo:</strong> Ngắt nguồn điện ngay lập tức và tiến hành kiểm tra toàn bộ hệ thống
+                trước khi tiếp tục sử dụng.</p>
+            </div>
+        </section>
+
+        <section id="ro-nuoc">
+            <h2>Bình nóng lạnh bị rò rỉ nước</h2>
+            <p>
+                Hiện tượng rò rỉ nước thường xuất phát từ gioăng cao su bị lão hóa, van an toàn hoạt động không ổn định
+                hoặc thân bình bị ăn mòn theo thời gian.
+            </p>
+            <p>
+                Nếu không xử lý kịp thời, tình trạng này có thể dẫn đến chập điện hoặc hư hỏng các bộ phận khác.
+            </p>
+        </section>
+
+        <section id="bao-duong">
+            <h2>Bảo dưỡng bình nóng lạnh định kỳ</h2>
+            <p>
+                Việc bảo dưỡng định kỳ giúp loại bỏ cặn bẩn, kiểm tra các linh kiện quan trọng và kéo dài tuổi thọ thiết bị.
+                Đồng thời, bảo dưỡng còn giúp phát hiện sớm các nguy cơ mất an toàn tiềm ẩn.
+            </p>
+            <div class="box">
+                <p><strong>Chu kỳ khuyến nghị:</strong> 6 – 12 tháng/lần tùy theo tần suất sử dụng.</p>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    © 2026 Dịch vụ sửa chữa điện lạnh – Thiết kế chuyên nghiệp & kỹ thuật an toàn
+</footer>
+
+</body>
+</html>
