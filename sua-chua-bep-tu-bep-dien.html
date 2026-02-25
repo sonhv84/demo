@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa chữa bếp từ, bếp điện | Điện lạnh Bách Khoa</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <style>
+/* ===============================
+   RESET + BASE
+================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f6f7f9;
+    color: #1f2937;
+    line-height: 1.7;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+.container {
+    display: flex;
+    gap: 32px;
+}
+
+/* ===============================
+   TOC (MỤC LỤC)
+================================ */
+#toc {
+    width: 260px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 18px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+#toc h3 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+#toc-list {
+    font-size: 14px;
+}
+
+#toc-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#toc-list li {
+    margin-bottom: 8px;
+}
+
+#toc-list a {
+    display: block;
+    text-decoration: none;
+    color: #374151;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+#toc-list a:hover {
+    background: #e0f2fe;
+    color: #0369a1;
+    transform: translateX(4px);
+}
+
+/* cấp heading sâu hơn */
+#toc-list li ul {
+    margin-top: 6px;
+    margin-left: 12px;
+}
+
+/* ===============================
+   CONTENT
+================================ */
+#content-wrapper {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 48px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+}
+
+/* loading */
+#loading {
+    font-size: 16px;
+    color: #64748b;
+}
+
+/* ẩn */
+.hidden {
+    display: none;
+}
+
+/* ===============================
+   MARKDOWN STYLE
+================================ */
+#main-content h1 {
+    font-size: 34px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+#main-content h2 {
+    font-size: 26px;
+    margin-top: 48px;
+    margin-bottom: 14px;
+    color: #111827;
+}
+
+#main-content h3 {
+    font-size: 20px;
+    margin-top: 32px;
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+#main-content p {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+#main-content ul,
+#main-content ol {
+    margin-left: 20px;
+    margin-bottom: 18px;
+}
+
+#main-content li {
+    margin-bottom: 8px;
+}
+
+/* highlight box */
+#main-content blockquote {
+    background: #f1f5f9;
+    border-left: 5px solid #0ea5e9;
+    padding: 14px 18px;
+    margin: 24px 0;
+    border-radius: 8px;
+    color: #334155;
+}
+
+/* bảng */
+#main-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+}
+
+#main-content th,
+#main-content td {
+    border: 1px solid #e5e7eb;
+    padding: 10px 12px;
+}
+
+#main-content th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #toc {
+        position: relative;
+        width: 100%;
+        top: unset;
+    }
+
+    #content-wrapper {
+        padding: 28px 24px;
+    }
+}
+/* FIX LỖI CHỮ BỊ XUỐNG DÒNG TỪNG TỪ TRONG TOC */
+#toc,
+#toc-list,
+#toc-list a {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+
+<div class="container" style="display: flex; max-width: 1200px; margin: 0 auto; padding: 40px;">
+
+
+    <main id="content-wrapper">
+        <div id="loading">“Đang loading nội dung…”</div>
+        <div id="main-content" class="hidden"></div>
+    </main>
+    </div>
+    <div id="footer"></div>
+
+    <script src="./src/js/loading_dich_vu.js"></script>
+    <script>
+// --- 1. Load Markdown và Render Nội Dung ---
+        loadMarkdown('bep-tu-bep-dien');
+    </script>
+    <script type="module" src="./src/js/loading_footer_header_sos.js"></script>
+</body>
+</html>

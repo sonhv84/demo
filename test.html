@@ -1,309 +1,187 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng giá - Điện Lạnh Bách Khoa</title>
+  <meta charset="UTF-8">
+  <title>Mobile Layout – One File</title>
 
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- BẮT BUỘC -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --primary-blue: #065087;
-            --accent-yellow: #ffb400;
-            --text-dark: #1e272e;
-            --text-light: #ffffff;
-            --bg-gray: #f4f7f6;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <style>
+    /* =====================
+       RESET + BASE (MOBILE)
+       ===================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            background-color: var(--bg-gray);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background: #f5f5f5;
+      color: #222;
+    }
 
-        /* --- Hiệu ứng cuộn (Scroll Animation Classes) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* =====================
+       HEADER (MOBILE)
+       ===================== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #111;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        /* --- Hero Section --- */
-        .hero-price {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #043d66 100%);
-            color: var(--text-light);
-            padding: 80px 20px;
-            text-align: center;
-        }
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+    }
 
-        .hero-badge {
-            display: inline-block;
-            background: var(--accent-yellow);
-            color: var(--primary-blue);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
+    .menu-btn {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
 
-        .hero-price h1 {
-            font-size: clamp(32px, 5vw, 56px);
-            margin: 0 0 15px 0;
-        }
+    /* =====================
+       MENU (MOBILE)
+       ===================== */
+    nav {
+      display: none;
+      background: #1e1e1e;
+    }
 
-        /* --- Main Container --- */
-        .container {
-            max-width: 1100px;
-            margin: -40px auto 60px;
-            padding: 0 20px;
-        }
+    nav a {
+      display: block;
+      padding: 14px 16px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #333;
+    }
 
-        /* --- Lưu ý --- */
-        .notice-card {
-            background: #fffbeb;
-            border-left: 5px solid var(--accent-yellow);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+    nav a:hover {
+      background: #333;
+    }
 
-        /* --- Bảng giá --- */
-        .service-section {
-            margin-bottom: 50px;
-        }
+    /* =====================
+       CONTENT
+       ===================== */
+    main {
+      padding: 16px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--primary-blue);
-            font-size: 24px;
-            margin-bottom: 25px;
-        }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
 
-        .section-title i {
-            color: var(--accent-yellow);
-        }
+    p {
+      margin-bottom: 12px;
+    }
 
-        .grid-tables {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
+    .card {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    }
 
-        .price-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
+    /* =====================
+       DESKTOP (>=768px)
+       ===================== */
+    @media (min-width: 768px) {
+      .menu-btn {
+        display: none;
+      }
 
-        .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
+      nav {
+        display: flex;
+        gap: 20px;
+        background: transparent;
+      }
 
-        .card-header {
-            background: var(--primary-blue);
-            color: white;
-            padding: 15px 20px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-        }
+      nav a {
+        border: none;
+        padding: 0;
+      }
 
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      header {
+        justify-content: flex-start;
+        gap: 40px;
+      }
 
-        .price-table td {
-            padding: 15px 20px;
-            border-bottom: 1px solid #eee;
-            font-size: 15px;
-        }
+      main {
+        padding: 32px;
+      }
 
-        .price-table tr:last-child td { border-bottom: none; }
-
-        .price-value {
-            text-align: right;
-            font-weight: 700;
-            color: var(--primary-blue);
-            white-space: nowrap;
-        }
-
-        /* --- CTA --- */
-        .cta-box {
-            background: var(--primary-blue);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 80px;
-            position: relative;
-        }
-
-        .cta-box h3 { font-size: 28px; margin-bottom: 10px; }
-
-        .btn-call {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--accent-yellow);
-            color: var(--primary-blue);
-            padding: 18px 35px;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 24px;
-            text-decoration: none;
-            margin-top: 25px;
-            transition: var(--transition);
-        }
-
-        .btn-call:hover {
-            background: white;
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 600px) {
-            .container { margin-top: 20px; }
-            .cta-box { padding: 40px 20px; }
-            .btn-call { font-size: 20px; width: 100%; box-sizing: border-box; justify-content: center; }
-        }
-    </style>
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div id="header"></div>
 
-    <section class="hero-price">
-        <div class="hero-badge">CẬP NHẬT 2026</div>
-        <h1>BẢNG GIÁ DỊCH VỤ</h1>
-        <p>Cam kết minh bạch - Giá rẻ hơn 20% so với thị trường</p>
-    </section>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">SONHV</div>
+    <button class="menu-btn" aria-label="Mở menu">☰</button>
+    <nav id="menu">
+      <a href="#">Trang chủ</a>
+      <a href="#">Dịch vụ</a>
+      <a href="#">Tin tức</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+  </header>
 
-    <main class="container">
-        <div class="notice-card reveal">
-            <i class="fa-solid fa-circle-info"></i>
-            Giá thực tế phụ thuộc vào thương hiệu máy và mức độ hư hỏng. Kỹ thuật viên sẽ báo giá miễn phí tại nhà trước khi làm.
-        </div>
+  <!-- CONTENT -->
+  <main>
+    <div class="card">
+      <h1>Giao diện Mobile-First</h1>
+      <p>
+        Đây là layout mẫu xử lý mobile trong <strong>1 file HTML duy nhất</strong>.
+        Không framework, không build tool.
+      </p>
+    </div>
 
-        <div class="service-section reveal">
-            <div class="section-title">
-                <i class="fas fa-snowflake"></i>
-                <h2>1. Dịch vụ Điều Hòa</h2>
-            </div>
-            <div class="grid-tables">
-                <div class="price-card">
-                    <div class="card-header">Vệ sinh - Bảo dưỡng</div>
-                    <table class="price-table">
-                        <tr><td>Máy treo tường 1HP - 1.5HP</td><td class="price-value">200k - 250k</td></tr>
-                        <tr><td>Máy treo tường 2HP - 2.5HP</td><td class="price-value">250k - 350k</td></tr>
-                        <tr><td>Máy âm trần/Áp trần</td><td class="price-value">450k - 600k</td></tr>
-                    </table>
-                </div>
-                <div class="price-card">
-                    <div class="card-header">Sửa chữa & Nạp Gas</div>
-                    <table class="price-table">
-                        <tr><td>Nạp bổ sung Gas R22/R32</td><td class="price-value">Từ 150k</td></tr>
-                        <tr><td>Sửa máy mất nguồn</td><td class="price-value">450k - 800k</td></tr>
-                        <tr><td>Thay tụ Block</td><td class="price-value">400k - 650k</td></tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <div class="card">
+      <p>
+        ✔ Mobile gọn<br>
+        ✔ Desktop tự mở menu<br>
+        ✔ Không dùng đường dẫn phức tạp
+      </p>
+    </div>
+  </main>
 
-        <div class="service-section reveal">
-            <div class="section-title">
-                <i class="fas fa-refrigerator"></i>
-                <h2>2. Dịch vụ Tủ Lạnh</h2>
-            </div>
-            <div class="grid-tables">
-                <div class="price-card">
-                    <div class="card-header">Lỗi thường gặp</div>
-                    <table class="price-table">
-                        <tr><td>Vệ sinh tủ lạnh</td><td class="price-value">150k - 250k</td></tr>
-                        <tr><td>Thay sò lạnh/sò nóng</td><td class="price-value">300k - 450k</td></tr>
-                        <tr><td>Sửa Board mạch</td><td class="price-value">Từ 550k</td></tr>
-                        <tr><td>Thay Block (Tùy công suất)</td><td class="price-value">Liên hệ</td></tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <!-- JS -->
+  <script>
+    const btn = document.querySelector('.menu-btn');
+    const menu = document.getElementById('menu');
 
-        <div class="service-section reveal">
-            <div class="section-title">
-                <i class="fas fa-faucet-drip"></i>
-                <h2>3. Dịch vụ Máy Giặt</h2>
-            </div>
-            <div class="grid-tables">
-                <div class="price-card">
-                    <div class="card-header">Vệ sinh & Sửa chữa</div>
-                    <table class="price-table">
-                        <tr><td>Vệ sinh máy cửa trên</td><td class="price-value">250k - 350k</td></tr>
-                        <tr><td>Vệ sinh máy cửa ngang</td><td class="price-value">450k - 550k</td></tr>
-                        <tr><td>Thay dây Curoa</td><td class="price-value">350k - 500k</td></tr>
-                        <tr><td>Sửa lỗi không xả nước</td><td class="price-value">350k - 600k</td></tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+    btn.addEventListener('click', () => {
+      menu.style.display =
+        menu.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
 
-        <div class="cta-box reveal">
-            <h3>Bạn muốn đặt lịch kiểm tra ngay?</h3>
-            <p>Có mặt sau 15 phút - Không hài lòng không thu tiền</p>
-            <a href="tel:0367274152" class="btn-call">
-                <i class="fa-solid fa-phone-volume"></i>
-                0367 274 152
-            </a>
-        </div>
-    </main>
-
-    <div id="footer"></div>
-
-    <script type="module" src="./src/js/main.js"></script>
-    
-    <script>
-        // Hiệu ứng JS thuần: Reveal on Scroll
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.1 // Kích hoạt khi hiện được 10% phần tử
-        });
-
-        revealElements.forEach(el => {
-            scrollObserver.observe(el);
-        });
-
-        // Thêm hiệu ứng rung cho nút gọi mỗi 5 giây
-        const callBtn = document.querySelector('.btn-call');
-        setInterval(() => {
-            callBtn.style.transform = 'scale(1.1) rotate(2deg)';
-            setTimeout(() => {
-                callBtn.style.transform = '';
-            }, 200);
-        }, 5000);
-    </script>
 </body>
 </html>

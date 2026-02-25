@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lắp đặt và tháo dỡ | Điện lạnh Bách Khoa</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="/src/css/style.css">
+  
+</head>
+<body>
+    <div id="header"></div>
+
+<div class="container" style="display: flex; max-width: 1200px; margin: 0 auto; padding: 40px;">
+
+
+    <main id="content-wrapper">
+        <div id="loading">“Đang loading nội dung…”</div>
+        <div id="main-content" class="hidden"></div>
+    </main>
+    </div>
+    <div id="footer"></div>
+
+    <script src="/src/js/loading_dich_vu.js"></script>
+    <script>
+// --- 1. Load Markdown và Render Nội Dung ---
+        loadMarkdown('lap-dat-thao-do');
+    </script>
+    <script type="module" src="/src/js/loading_footer_header_sos.js"></script>
+
+</body>
+</html>
