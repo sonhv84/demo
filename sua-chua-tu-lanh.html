@@ -1,146 +1,115 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
-    <title>Sửa chữa tủ lạnh | Điện lạnh Bách Khoa</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Sửa Tủ Lạnh Tại Nhà Hà Nội Uy Tín - Điện Lạnh Bách Khoa K3</title>
+    <meta name="description" content="Dịch vụ sửa tủ lạnh Hà Nội chuyên nghiệp. Chuyên sửa tủ lạnh Inverter, Side-by-Side các hãng Samsung, LG, Hitachi, Toshiba... Thợ giỏi có mặt sau 15p, bảo hành 12 tháng.">
+    <meta name="keywords" content="sửa tủ lạnh hà nội, sửa tủ lạnh bách khoa, sửa tủ lạnh tại nhà, nạp gas tủ lạnh, sửa tủ lạnh không đông đá">
+    <link rel="canonical" href="https://dienlanhbackkhoak3.com.vn/sua-chua-tu-lanh.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Sửa chữa tủ lạnh",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Điện Lạnh Bách Khoa K3",
+        "telephone": "0367274152",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Số 13 Khuất Duy Tiến",
+          "addressLocality": "Thanh Xuân",
+          "addressRegion": "Hà Nội",
+          "addressCountry": "VN"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hà Nội"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Bảng giá sửa tủ lạnh",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Nạp gas tủ lạnh" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Thay Block tủ lạnh" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Sửa tủ lạnh không đông đá" }
+          }
+        ]
+      }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
     <style>
-   /* --- 1. Reset & Base Font --- */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.7;
-    color: #333;
-    margin: 0;
-    background-color: #fff;
-}
-
-.container {
-    display: flex;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-    gap: 40px;
-}
-
-/* --- 2. Typography (Font chữ nội dung) --- */
-h1 { font-size: 2.2em; font-weight: 700; color: #111; margin-bottom: 0.5em; }
-h2 { font-size: 1.6em; font-weight: 600; color: #222; margin-top: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-h3 { font-size: 1.3em; font-weight: 600; color: #444; }
-
-p { margin-bottom: 1.2em; }
-img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
-em { display: block; text-align: center; color: #666; font-style: normal; font-size: 0.9em; margin-top: -10px; }
-
-/* --- 3. Mục lục (TOC) Desktop --- */
-#toc {
-    width: 320px;
-    height: fit-content;
-    position: sticky;
-    top: 20px;
-    background: #f9f9f9;
-    border: 1px solid #e1e1e1;
-    border-radius: 12px;
-    padding: 20px;
-}
-
-#toc h3 {
-    margin-top: 0;
-    font-size: 1.1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-#toc-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-#toc-list li {
-    margin: 10px 0;
-}
-
-#toc-list a {
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-#toc-list a:hover {
-    color: #003d82;
-    text-decoration: underline;
-}
-
-/* --- 4. Content Area --- */
-#content-wrapper {
-    flex: 1;
-    min-width: 0; /* Tránh tràn khung trên mobile */
-}
-
-/* Khoảng trống khi nhảy Anchor để không bị che bởi thanh menu (nếu có) */
-[id] {
-    scroll-margin-top: 30px;
-}
-
-/* --- 5. RESPONSIVE (Cho màn hình Mobile < 768px) --- */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Chuyển thành 1 cột dọc */
-        padding: 15px;
-        gap: 20px;
-    }
-
-    #toc {
-        width: 100%; /* Mục lục rộng toàn màn hình */
-        position: relative; /* Không còn dính bên cạnh */
-        top: 0;
-        order: 1; /* Đưa mục lục lên trước nội dung */
-    }
-
-    #content-wrapper {
-        order: 2;
-    }
-
-    h1 { font-size: 1.8em; }
-    h2 { font-size: 1.4em; }
-
-    /* Thu nhỏ thụt đầu dòng mục lục con trên mobile cho gọn */
-    #toc-list ul ul {
-        padding-left: 15px;
-    }
-}
+        /* Giữ nguyên logic CSS của Sơn và tối ưu thêm */
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: #333; margin: 0; background-color: #fff; }
+        .container { display: flex; max-width: 1200px; margin: 0 auto; padding: 40px; gap: 40px; }
+        #toc { width: 320px; height: fit-content; position: sticky; top: 100px; background: #f9f9f9; border: 1px solid #e1e1e1; border-radius: 12px; padding: 20px; }
+        #toc h3 { font-size: 1.1em; text-transform: uppercase; color: #888; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-top: 0; }
+        #toc-list a { text-decoration: none; color: #0056b3; font-weight: 500; transition: color 0.2s; }
+        #content-wrapper { flex: 1; min-width: 0; }
+        h1 { font-size: 2.2em; color: #d32f2f; font-weight: 800; }
+        .cta-button { display: inline-block; background: #d32f2f; color: #fff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; margin-top: 20px; }
+        
+        @media (max-width: 768px) {
+            .container { flex-direction: column; padding: 15px; }
+            #toc { width: 100%; position: relative; top: 0; }
+        }
     </style>
 </head>
+
 <body>
     <div id="header"></div>
 
-<div class="container" style="display: flex; max-width: 1200px; margin: 0 auto; padding: 40px;">
-      <nav id="toc">
-        <h3>Mục lục</h3>
-        <div id="toc-list">Đang tạo mục lục...</div>
-    </nav>
+    <div class="container">
+        <nav id="toc">
+            <div style="font-size: 13px; margin-bottom: 15px; color: #999;">
+                <a href="/" style="color: #065087;">Trang chủ</a> / <span>Sửa tủ lạnh</span>
+            </div>
+            <h3>Mục lục</h3>
+            <div id="toc-list">Đang tạo mục lục...</div>
+        </nav>
 
-    <main id="content-wrapper">
-        <div id="loading">“Đang loading nội dung…”</div>
-        <div id="main-content" class="hidden"></div>
-    </main>
+        <main id="content-wrapper">
+            <article>
+                <h1>Dịch Vụ Sửa Tủ Lạnh Tại Nhà Chuyên Nghiệp</h1>
+                <p>Trung tâm Điện Lạnh Bách Khoa K3 chuyên khắc phục triệt để các sự cố tủ lạnh không lạnh, không đông đá, hỏng block, xì gas... Cam kết thợ giỏi, giá rẻ nhất thị trường.</p>
+                
+                <div id="loading">“Đang kết nối dữ liệu chuyên gia...”</div>
+                
+                <div id="main-content" class="hidden"></div>
+
+                <a href="tel:0367274152" class="cta-button"><i class="fas fa-phone-alt"></i> Gọi thợ ngay: 0367 274 152</a>
+            </article>
+        </main>
     </div>
+
     <div id="footer"></div>
-    <script type="module" src="../dienlanhbackkhoak3/src/js/loading_dich_vu.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./src/js/loading_dich_vu.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
+    
     <script>
-// --- 1. Load Markdown và Render Nội Dung ---
+        // Load nội dung tu-lanh.md
         loadMarkdown('tu-lanh');
     </script>
 </body>
-    <script type="module" src="./src/js/main.js"></script>
-
 </html>

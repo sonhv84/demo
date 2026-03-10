@@ -1,20 +1,130 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Tin tức - Điện Lạnh Bách Khoa</title>
 
-          <link rel="stylesheet" href="./src/css/style.css">
-          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tin Tức & Cẩm Nang Điện Lạnh | Điện Lạnh Bách Khoa K3</title>
+  <meta name="description" content="Cập nhật tin tức mới nhất về ngành điện lạnh, mẹo sử dụng điều hòa, tủ lạnh bền bỉ và hướng dẫn sửa chữa thiết bị tại nhà từ chuyên gia Bách Khoa K3 Hà Nội.">
+  <meta name="keywords" content="tin tức điện lạnh, mẹo sử dụng điều hòa, cẩm nang máy giặt, sửa chữa tủ lạnh bách khoa">
+  <link rel="canonical" href="https://dienlanhbackkhoak3.com.vn/tin-tuc.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Tin tức và Cẩm nang Điện Lạnh Bách Khoa K3",
+    "description": "Chuyên mục chia sẻ kiến thức, mẹo vặt và tin tức ngành điện lạnh tại Hà Nội.",
+    "publisher": {
+      "@type": "LocalBusiness",
+      "name": "Điện Lạnh Bách Khoa K3",
+      "url": "https://dienlanhbackkhoak3.com.vn/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/components/news-card.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJWGL4ZWFT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VJWGL4ZWFT');
+  </script>
 </head>
+
 <body>
-          <div id="header"></div>
-          <main>
-                    <h1>Trang tin tức</h1>
-          </main>
-          <div id="footer"></div>
+  <div id="header"></div>
+
+  <main class="container py-5">
+    <nav aria-label="breadcrumb" style="margin-bottom: 25px; font-size: 14px;">
+      <a href="./index.html" style="color: #065087; text-decoration: none;">Trang chủ</a> 
+      <span style="margin: 0 8px; color: #999;">/</span> 
+      <span style="color: #666;">Tin tức & Cẩm nang</span>
+    </nav>
+
+    <section class="section-title reveal">
+      <h1 style="font-size: 32px; color: #065087; margin-bottom: 10px;">Tin Tức & Cẩm Nang Điện Lạnh</h1>
+      <p style="color: #555;">Chia sẻ kiến thức chuyên sâu để bạn sử dụng thiết bị gia đình bền bỉ và hiệu quả nhất.</p>
+    </section>
+
+    <div class="category-filter reveal" style="display: flex; gap: 10px; margin: 30px 0; flex-wrap: wrap;">
+        <span style="padding: 8px 16px; background: #065087; color: #fff; border-radius: 20px; font-size: 14px; cursor: pointer;">Tất cả</span>
+        <span style="padding: 8px 16px; background: #eee; border-radius: 20px; font-size: 14px; cursor: pointer;">Mẹo Điều Hòa</span>
+        <span style="padding: 8px 16px; background: #eee; border-radius: 20px; font-size: 14px; cursor: pointer;">Kinh Nghiệm Tủ Lạnh</span>
+        <span style="padding: 8px 16px; background: #eee; border-radius: 20px; font-size: 14px; cursor: pointer;">Sửa Chữa Máy Giặt</span>
+    </div>
+
+    <div class="news-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+      
+      <article class="news-card reveal" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <div class="news-img" style="height: 200px; background: #ddd;">
+             <img src="./dich-vu/images/ve-sinh-dieu-hoa.png" alt="Cách vệ sinh điều hòa tại nhà" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+        </div>
+        <div style="padding: 20px;">
+          <span style="font-size: 12px; color: #d32f2f; font-weight: bold; text-transform: uppercase;">Mẹo Điều Hòa</span>
+          <h2 style="font-size: 18px; margin: 10px 0;"><a href="#" style="text-decoration: none; color: #333;">Cách vệ sinh điều hòa tại nhà giúp tiết kiệm 30% điện năng</a></h2>
+          <p style="font-size: 14px; color: #666; line-height: 1.5;">Hướng dẫn chi tiết từng bước tự vệ sinh lưới lọc và dàn lạnh điều hòa mà không cần gọi thợ...</p>
+          <a href="#" style="display: inline-block; margin-top: 15px; color: #065087; font-weight: bold; text-decoration: none; font-size: 14px;">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition-delay: 0.1s;">
+        <div class="news-img" style="height: 200px; background: #ddd;">
+            <img src="./dich-vu/images/sua-chua-tu-lanh.png" alt="Sửa tủ lạnh không đông đá" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+        </div>
+        <div style="padding: 20px;">
+          <span style="font-size: 12px; color: #1976d2; font-weight: bold; text-transform: uppercase;">Kinh Nghiệm Tủ Lạnh</span>
+          <h2 style="font-size: 18px; margin: 10px 0;"><a href="#" style="text-decoration: none; color: #333;">Tại sao tủ lạnh không đông đá? 5 nguyên nhân và cách xử lý nhanh</a></h2>
+          <p style="font-size: 14px; color: #666; line-height: 1.5;">Tìm hiểu nguyên nhân khiến tủ lạnh bỗng nhiên không làm đá và cách kiểm tra sò lạnh, rơ le tại nhà...</p>
+          <a href="#" style="display: inline-block; margin-top: 15px; color: #065087; font-weight: bold; text-decoration: none; font-size: 14px;">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition-delay: 0.2s;">
+        <div class="news-img" style="height: 200px; background: #ddd;">
+            <img src="./dich-vu/images/ve-sinh-long-giat.png" alt="Vệ sinh máy giặt bằng baking soda" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+        </div>
+        <div style="padding: 20px;">
+          <span style="font-size: 12px; color: #388e3c; font-weight: bold; text-transform: uppercase;">Sửa Chữa Máy Giặt</span>
+          <h2 style="font-size: 18px; margin: 10px 0;"><a href="#" style="text-decoration: none; color: #333;">Mẹo dùng Baking Soda và giấm để đánh bay mùi hôi máy giặt</a></h2>
+          <p style="font-size: 14px; color: #666; line-height: 1.5;">Máy giặt có mùi lạ và vết bẩn bám trên quần áo? Đây là cách vệ sinh lồng giặt cực rẻ và hiệu quả...</p>
+          <a href="#" style="display: inline-block; margin-top: 15px; color: #065087; font-weight: bold; text-decoration: none; font-size: 14px;">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pagination reveal" style="text-align: center; margin-top: 50px;">
+        <span style="padding: 8px 15px; border: 1px solid #065087; background: #065087; color: #fff; margin: 0 5px; border-radius: 5px; cursor: pointer;">1</span>
+        <span style="padding: 8px 15px; border: 1px solid #ddd; margin: 0 5px; border-radius: 5px; cursor: pointer;">2</span>
+        <span style="padding: 8px 15px; border: 1px solid #ddd; margin: 0 5px; border-radius: 5px; cursor: pointer;">Tiếp <i class="fas fa-chevron-right"></i></span>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <div class="floating-contacts">
+    <a href="tel:0367274152" class="contact-btn phone" title="Gọi hotline"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://zalo.me/0559763681" target="_blank" rel="noopener" class="contact-btn zalo" title="Zalo hỗ trợ"><i class="fas fa-comment-dots"></i></a>
+  </div>
+
+  <script type="module" src="./src/js/main.js"></script>
+  <script>
+    // Reveal animation logic
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
-<script type="module" src="./src/js/main.js"></script>
 </html>

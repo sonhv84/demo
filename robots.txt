@@ -1,12 +1,26 @@
-# Tối ưu SEO cho Điện Lạnh Bách Khoa
+# ==========================================
+# SEO ROBOTS FILE - DIEN LANH BACH KHOA K3
+# ==========================================
+
 User-agent: *
 Allow: /
+# Cho phép Bot truy cập các tài nguyên cần thiết để render giao diện (Tránh lỗi UX SEO)
+Allow: /src/*.css
+Allow: /src/*.js
+Allow: /src/assets/
 
-# Chặn các thư mục hệ thống và dữ liệu thô
+# CHẶN BLACKLIST: Các thư mục hệ thống và dữ liệu thô
 Disallow: /.github/
-Disallow: /src/
+Disallow: /src/components/
+Disallow: /src/js/core/
 Disallow: /dich-vu/data/
 Disallow: /test.html
+Disallow: /404.html
+Disallow: /README.md
 
-# Đường dẫn đến Sitemap để Bot tìm thấy nhanh nhất
+# TỐI ƯU CRAWL BUDGET: Tránh index các trang trùng lặp (nếu bạn đã chuyển hết về /dich-vu/)
+# Disallow: /sua-chua-tu-lanh.html
+# Disallow: /sua-chua-bep-tu-bep-dien.html
+
+# ĐƯỜNG DẪN SITEMAP CHÍNH THỨC
 Sitemap: https://dienlanhbackkhoak3.com.vn/sitemap.xml
