@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Điện Lạnh Bách Khoa BK - Hệ Thống Sửa Chữa Chuyên Nghiệp</title>
+  
+  <meta name="description" content="Dịch vụ sửa chữa điều hòa, tủ lạnh, máy giặt uy tín tại Hà Nội - Điện Lạnh Bách Khoa">
+  <meta name="author" content="Hoàng Văn Sơn">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. BIẾN CSS & RESET (Sử dụng đúng tone màu của Sơn)
+       ========================================================================== */
+    :root {
+      --primary-blue: #005696;    /* Xanh chủ đạo */
+      --footer-bg: #1a3a5a;        /* Xanh đậm footer */
+      --accent-cyan: #40e0d0;      /* Cyan hiện đại */
+      --accent-yellow: #ffb400;    /* Vàng nhấn mạnh */
+      --text-dark: #333333;        /* Chữ tối */
+      --text-light: #ffffff;       /* Chữ trắng */
+      --white: #ffffff;
+      --gray-bg: #f4f7f9;
+      
+      /* Hiệu ứng chuyển động đặc trưng của bản cao cấp */
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: var(--gray-bg); color: var(--text-dark); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+
+    /* ==========================================================================
+       2. HEADER CHÍNH (DESKTOP)
+       ========================================================================== */
+    #header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    /* 2.1. Logo */
+    .logo img {
+      height: 55px;
+      display: block;
+      transition: var(--transition);
+    }
+    .logo img:hover { transform: scale(1.02); }
+
+    /* 2.2. Desktop Navigation */
+    .nav-desktop {
+      display: flex;
+      height: 100%;
+      margin: 0 20px;
+    }
+
+    .nav-desktop > li {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-desktop > li > a {
+      padding: 0 18px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-desktop > li > a i { margin-left: 6px; font-size: 11px; transition: transform 0.3s; }
+    .nav-desktop > li:hover > a { color: var(--primary-blue); }
+    .nav-desktop > li:hover > a i { transform: rotate(180deg); color: var(--accent-cyan); }
+
+    /* Hiệu ứng thanh chạy dưới menu desktop */
+    .nav-desktop > li > a::after {
+      content: '';
+      position: absolute;
+      bottom: 20px; left: 18px; right: 18px; height: 3px;
+      background: var(--accent-cyan);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    .nav-desktop > li:hover > a::after { transform: scaleX(1); }
+
+    /* 2.3. Mega Menu (Desktop) */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      width: 850px;
+      background: var(--white);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      border-top: 4px solid var(--primary-blue);
+      padding: 30px;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1001;
+      border-radius: 0 0 10px 10px;
+      transition: var(--transition);
+    }
+
+    .nav-desktop li:hover .mega-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .mega-col h4 {
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-bottom: 2px solid var(--gray-bg);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+    }
+
+    .mega-col h4 i { margin-right: 10px; color: var(--accent-yellow); }
+
+    .service-links a {
+      display: block;
+      padding: 8px 0;
+      color: #555;
+      font-size: 14.5px;
+      border-bottom: 1px dashed #f0f0f0;
+    }
+
+    .service-links a:hover {
+      color: var(--primary-blue);
+      padding-left: 8px;
+      background: linear-gradient(to right, #f0f7ff, transparent);
+    }
+
+    /* 2.4. Search Box (Desktop) */
+    .header-tools { display: flex; align-items: center; }
+
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 10px 40px 10px 18px;
+      border: 1.5px solid #e1e8ed;
+      border-radius: 30px;
+      width: 180px;
+      font-size: 14px;
+      background: #fcfcfc;
+      transition: var(--transition);
+    }
+
+    .search-input:focus { width: 240px; border-color: var(--primary-blue); background: #fff; box-shadow: 0 0 10px rgba(0,86,150,0.1); }
+
+    .search-btn {
+      position: absolute;
+      right: 15px;
+      color: var(--primary-blue);
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    /* ==========================================================================
+       3. MOBILE LAYOUT (Toggle - Logo - Search)
+       ========================================================================== */
+    .menu-toggle { display: none; }
+
+    @media (max-width: 991px) {
+      /* Ưu tiên thứ tự hiển thị: Menu (1) - Logo (2) - Search (3) */
+      .menu-toggle { display: block; order: 1; width: 50px; font-size: 26px; color: var(--primary-blue); cursor: pointer; }
+      .logo { order: 2; flex: 1; text-align: center; }
+      .logo img { height: 48px; margin: 0 auto; }
+      .header-tools { order: 3; width: 50px; justify-content: flex-end; }
+      
+      .nav-desktop, .search-input { display: none; }
+      #mobile-search-trigger { font-size: 22px; color: var(--primary-blue); cursor: pointer; }
+
+      /* SIDEBAR MOBILE (Premium Sidebar) */
+      #sidebar-mobile {
+        position: fixed;
+        top: 0;
+        left: -105%; /* Ẩn menu */
+        width: 320px;
+        height: 100vh;
+        background: var(--white);
+        z-index: 2000;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        padding-bottom: 50px;
+      }
+
+      #sidebar-mobile.active { left: 0; }
+
+      .sidebar-header {
+        padding: 30px 20px;
+        background: var(--primary-blue);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* FLAT NAVIGATION (Accordion Phẳng cho Mobile) */
+      .flat-nav { margin-top: 15px; }
+      
+      .acc-item { border-bottom: 1px solid #f1f1f1; }
+
+      .acc-btn {
+        width: 100%;
+        padding: 18px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--primary-blue);
+        cursor: pointer;
+      }
+
+      .acc-btn i.main-icon { width: 30px; font-size: 18px; color: var(--accent-cyan); }
+      .acc-btn i.arrow-icon { font-size: 11px; transition: 0.3s; color: #ccc; }
+
+      .acc-content {
+        background: #f9fbff;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+
+      .acc-content a {
+        display: block;
+        padding: 12px 20px 12px 65px;
+        font-size: 14.5px;
+        color: #555;
+        border-bottom: 1px solid #fff;
+      }
+
+      /* State: Open Accordion */
+      .acc-item.open .acc-content { max-height: 600px; }
+      .acc-item.open .arrow-icon { transform: rotate(180deg); color: var(--accent-yellow); }
+      .acc-item.open .acc-btn { background: #f0f7ff; }
+
+      /* Overlay mờ phía sau cao cấp */
+      .overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(26, 58, 90, 0.5); /* Tận dụng màu footer-bg */
+        display: none;
+        z-index: 1999;
+        backdrop-filter: blur(4px); /* Làm mờ nền cực đẹp */
+      }
+      .overlay.active { display: block; }
+    }
+
+    /* 4. NÚT HOTLINE RUNG RINH (UX/Conversion) */
+    .mobile-hotline {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--secondary-color);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(227, 30, 36, 0.3);
+      z-index: 998;
+      animation: phoneShake 2s infinite;
+    }
+
+    @keyframes phoneShake {
+      0% { transform: scale(1); }
+      10% { transform: scale(1.1) rotate(-3deg); }
+      20% { transform: scale(1.1) rotate(3deg); }
+      30% { transform: scale(1.1) rotate(-3deg); }
+      40% { transform: scale(1.1) rotate(3deg); }
+      50% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<header id="header">
+  <div class="header-container">
+    
+    <div class="menu-toggle" id="btn-open">
+      <i class="fas fa-bars-staggered"></i>
+    </div>
+
+    <div class="logo">
+      <a href="/index.html">
+        <img src="https://via.placeholder.com/200x60/005696/FFFFFF?text=DIEN+LANH+BK" alt="Điện Lạnh Bách Khoa - Sửa chữa uy tín">
+      </a>
+    </div>
+
+    <nav>
+      <ul class="nav-desktop">
+        <li><a href="/index.html">Trang chủ</a></li>
+
+        <li>
+          <a href="javascript:void(0)">Dịch vụ <i class="fas fa-chevron-down"></i></a>
+          <div class="mega-menu">
+            <div class="mega-grid">
+              <div class="mega-col">
+                <h4><i class="fas fa-snowflake"></i> Điều Hòa</h4>
+                <div class="service-links">
+                  <a href="#">Sửa chữa điều hòa</a>
+                  <a href="#">Bảo dưỡng & Vệ sinh</a>
+                  <a href="#">Lắp đặt điều hòa</a>
+                  <a href="#">Nạp gas điều hòa</a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <h4><i class="fas fa-house-laptop"></i> Đồ Gia Dụng</h4>
+                <div class="service-links">
+                  <a href="#">Sửa tủ lạnh Inverter</a>
+                  <a href="#">Sửa máy giặt cửa ngang</a>
+                  <a href="#">Sửa máy rửa bát</a>
+                  <a href="#">Sửa máy sấy quần áo</a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <h4><i class="fas fa-tv"></i> Điện Tử</h4>
+                <div class="service-links">
+                  <a href="#">Sửa bếp từ chuyên nghiệp</a>
+                  <a href="#">Sửa Tivi 4K/OLED</a>
+                  <a href="#">Sửa lò vi sóng</a>
+                  <a href="#">Sửa bình nóng lạnh</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="/huong-dan.html">Hướng dẫn</a></li>
+        <li><a href="/bang-gia.html">Bảng giá</a></li>
+        <li><a href="/lien-he.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Tìm dịch vụ...">
+        <i class="fas fa-search search-btn" id="mobile-search-trigger"></i>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<aside id="sidebar-mobile">
+  <div class="sidebar-header">
+    <div style="text-align: left;">
+      <strong style="font-size: 1.2rem; letter-spacing: 1px;">ĐIỆN LẠNH BÁCH KHOA K3</strong>
+      <p style="font-size: 0.7rem; opacity: 0.8; margin-top: 4px;">Hệ thống sửa chữa số 1</p>
+    </div>
+    <i class="fas fa-times" id="btn-close" style="cursor:pointer; font-size:24px;"></i>
+  </div>
+  
+  <div class="flat-nav">
+    <div class="acc-item">
+      <a href="/" class="acc-btn" style="text-decoration:none">
+        <span><i class="fas fa-home main-icon"></i> Trang chủ</span>
+      </a>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-btn">
+        <span><i class="fas fa-snowflake main-icon"></i> Sửa Điều Hòa</span>
+        <i class="fas fa-chevron-down arrow-icon"></i>
+      </div>
+      <div class="acc-content">
+        <a href="#">Sửa chữa tại nhà</a>
+        <a href="#">Bảo dưỡng & Vệ sinh</a>
+        <a href="#">Lắp đặt điều hòa</a>
+        <a href="#">Nạp gas máy lạnh</a>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-btn">
+        <span><i class="fas fa-faucet-drip main-icon"></i> Tủ Lạnh & Máy Giặt</span>
+        <i class="fas fa-chevron-down arrow-icon"></i>
+      </div>
+      <div class="acc-content">
+        <a href="#">Sửa tủ lạnh Inverter</a>
+        <a href="#">Sửa máy giặt</a>
+        <a href="#">Sửa máy rửa bát</a>
+        <a href="#">Vệ sinh lồng giặt</a>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-btn">
+        <span><i class="fas fa-tv main-icon"></i> Điện Tử Dân Dụng</span>
+        <i class="fas fa-chevron-down arrow-icon"></i>
+      </div>
+      <div class="acc-content">
+        <a href="#">Sửa bếp từ, bếp điện</a>
+        <a href="#">Sửa Tivi 4K/OLED</a>
+        <a href="#">Sửa bình nóng lạnh</a>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-btn">
+        <span><i class="fas fa-book main-icon"></i> Hướng dẫn kỹ thuật</span>
+        <i class="fas fa-chevron-down arrow-icon"></i>
+      </div>
+      <div class="acc-content">
+        <a href="#">Dùng remote tiết kiệm điện</a>
+        <a href="#">Bảng mã lỗi điều hòa</a>
+        <a href="#">Tự vệ sinh tại nhà</a>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <a href="/bang-gia.html" class="acc-btn" style="text-decoration:none">
+        <span><i class="fas fa-tags main-icon"></i> Bảng giá dịch vụ</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+
+
+<script>
+  /**
+   * HỆ THỐNG ĐIỀU HƯỚNG BÁCH KHOA - GEMINI X SƠN
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnOpen = document.getElementById('btn-open');
+    const btnClose = document.getElementById('btn-close');
+    const sidebar = document.getElementById('sidebar-mobile');
+    const overlay = document.getElementById('overlay');
+    const accItems = document.querySelectorAll('.acc-item');
+
+    // 1. Logic đóng mở Sidebar mượt mà
+    const toggleSidebar = () => {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+      // Lock cuộn trang khi menu đang mở
+      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+    };
+
+    btnOpen.addEventListener('click', toggleSidebar);
+    btnClose.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
+
+    // 2. Logic Accordion Phẳng (Direct Link) cho Mobile
+    accItems.forEach(item => {
+      const btn = item.querySelector('.acc-btn');
+      const content = item.querySelector('.acc-content');
+      
+      if (btn && content) {
+        btn.addEventListener('click', function(e) {
+          // Chỉ áp dụng cho mobile (màn hình < 992px)
+          if (window.innerWidth <= 991) {
+            e.preventDefault();
+            
+            const isOpen = item.classList.contains('open');
+
+            // Đóng các accordion khác trước (kiểu chuyên nghiệp)
+            accItems.forEach(other => {
+              if (other !== item) other.classList.remove('open');
+            });
+
+            // Toggle mục hiện tại
+            item.classList.toggle('open');
+          }
+        });
+      }
+    });
+
+    // 3. Xử lý Search trên Mobile
+    const mobileSearch = document.getElementById('mobile-search-trigger');
+    mobileSearch.addEventListener('click', () => {
+      if (window.innerWidth <= 991) {
+        const query = prompt("Bạn cần tìm linh kiện hay dịch vụ gì?");
+        if (query) {
+          alert("Đang tìm kiếm: " + query);
+          // window.location.href = `/search?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
