@@ -1,187 +1,143 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Mobile Layout – One File</title>
-
-  <!-- BẮT BUỘC -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    /* =====================
-       RESET + BASE (MOBILE)
-       ===================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.6;
-      background: #f5f5f5;
-      color: #222;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* =====================
-       HEADER (MOBILE)
-       ===================== */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      background: #111;
-      color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .menu-btn {
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* =====================
-       MENU (MOBILE)
-       ===================== */
-    nav {
-      display: none;
-      background: #1e1e1e;
-    }
-
-    nav a {
-      display: block;
-      padding: 14px 16px;
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid #333;
-    }
-
-    nav a:hover {
-      background: #333;
-    }
-
-    /* =====================
-       CONTENT
-       ===================== */
-    main {
-      padding: 16px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    p {
-      margin-bottom: 12px;
-    }
-
-    .card {
-      background: #fff;
-      padding: 16px;
-      border-radius: 8px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.08);
-    }
-
-    /* =====================
-       DESKTOP (>=768px)
-       ===================== */
-    @media (min-width: 768px) {
-      .menu-btn {
-        display: none;
-      }
-
-      nav {
-        display: flex;
-        gap: 20px;
-        background: transparent;
-      }
-
-      nav a {
-        border: none;
-        padding: 0;
-      }
-
-      header {
-        justify-content: flex-start;
-        gap: 40px;
-      }
-
-      main {
-        padding: 32px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield - Chống Lừa Đảo Trực Tuyến</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<body class="bg-slate-50 font-sans">
 
-<body>
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 shadow-sm">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-halved text-blue-600 text-3xl"></i>
+                    <span class="text-2xl font-bold text-slate-800 uppercase tracking-tight">CyberShield</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 font-medium text-slate-600">
+                    <a href="#" class="hover:text-blue-600 transition">Trang chủ</a>
+                    <a href="#" class="hover:text-blue-600 transition">Nhận diện</a>
+                    <a href="#" class="hover:text-blue-600 transition">Thư viện kỹ năng</a>
+                    <a href="#" class="hover:text-blue-600 transition">Kiểm tra nhanh</a>
+                </div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">SONHV</div>
-    <button class="menu-btn" aria-label="Mở menu">☰</button>
-    <nav id="menu">
-      <a href="#">Trang chủ</a>
-      <a href="#">Dịch vụ</a>
-      <a href="#">Tin tức</a>
-      <a href="#">Liên hệ</a>
+                <div class="flex items-center gap-4">
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-full font-bold transition transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-bullhorn mr-2"></i>BÁO CÁO LỪA ĐẢO
+                    </button>
+                </div>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <!-- CONTENT -->
-  <main>
-    <div class="card">
-      <h1>Giao diện Mobile-First</h1>
-      <p>
-        Đây là layout mẫu xử lý mobile trong <strong>1 file HTML duy nhất</strong>.
-        Không framework, không build tool.
-      </p>
-    </div>
+    <section class="bg-gradient-to-r from-blue-700 to-indigo-900 text-white py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Kiểm tra An toàn Thông tin</h1>
+            <p class="text-blue-100 mb-10 text-lg">Nhập số điện thoại, tài khoản ngân hàng hoặc link website để kiểm tra độ uy tín.</p>
+            
+            <div class="bg-white p-2 rounded-xl shadow-2xl flex flex-col md:flex-row gap-2">
+                <input id="checkInput" type="text" placeholder="Ví dụ: 0901234xxx, bit.ly/abc, 190034..." 
+                       class="flex-grow p-4 text-slate-800 focus:outline-none text-lg rounded-lg">
+                <button onclick="checkSafe()" class="bg-blue-600 hover:bg-blue-800 text-white px-10 py-4 rounded-lg font-bold text-lg transition">
+                    KIỂM TRA NGAY
+                </button>
+            </div>
+            <div id="checkResult" class="mt-6 hidden p-4 rounded-lg font-bold text-center animate-bounce"></div>
+        </div>
+    </section>
 
-    <div class="card">
-      <p>
-        ✔ Mobile gọn<br>
-        ✔ Desktop tự mở menu<br>
-        ✔ Không dùng đường dẫn phức tạp
-      </p>
-    </div>
-  </main>
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-800 italic border-l-4 border-blue-600 pl-3">Bản đồ số "Điểm nóng lừa đảo"</h2>
+                    <span class="flex items-center text-red-500 text-sm animate-pulse">
+                        <i class="fas fa-circle mr-2"></i> Trực tiếp (Real-time)
+                    </span>
+                </div>
+                <div class="bg-slate-200 h-80 rounded-xl flex items-center justify-center relative overflow-hidden">
+                    <span class="text-slate-500 font-medium z-10 text-center">[Bản đồ tương tác khu vực Việt Nam]<br>Hiển thị các ca báo cáo gần đây</span>
+                    <div class="absolute top-1/4 left-1/3 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                    <div class="absolute bottom-1/3 right-1/4 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                </div>
+            </div>
 
-  <!-- JS -->
-  <script>
-    const btn = document.querySelector('.menu-btn');
-    const menu = document.getElementById('menu');
+            <div class="space-y-8">
+                <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                    <h3 class="text-xl font-bold text-indigo-900 mb-4">Bạn có dễ bị lừa?</h3>
+                    <p class="text-indigo-700 text-sm mb-6">Làm bài test nhanh 2 phút để nhận "Chứng chỉ công dân số an toàn".</p>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold transition">
+                        Bắt đầu Test ngay
+                    </button>
+                </div>
 
-    btn.addEventListener('click', () => {
-      menu.style.display =
-        menu.style.display === 'block' ? 'none' : 'block';
-    });
-  </script>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-slate-800 mb-4">Thống kê tháng này</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">Tổng báo cáo:</span>
+                            <span class="font-bold text-red-600">1,204</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">Đã xác minh lừa đảo:</span>
+                            <span class="font-bold text-slate-800">856</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12">
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Về CyberShield</h4>
+                <p class="text-sm leading-relaxed">Dự án cộng đồng nhằm bảo vệ người dân Việt Nam trước các rủi ro lừa đảo trực tuyến ngày càng tinh vi.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Liên hệ hỗ trợ</h4>
+                <p class="text-sm">Hotline: 1900 xxxx (24/7)</p>
+                <p class="text-sm">Email: baocao@cybershield.vn</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Theo dõi chúng tôi</h4>
+                <div class="flex gap-4 text-2xl">
+                    <i class="fab fa-facebook hover:text-white cursor-pointer"></i>
+                    <i class="fab fa-youtube hover:text-white cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function checkSafe() {
+            const input = document.getElementById('checkInput').value.trim();
+            const resultDiv = document.getElementById('checkResult');
+            
+            if(!input) {
+                alert("Vui lòng nhập thông tin cần kiểm tra!");
+                return;
+            }
+
+            resultDiv.classList.remove('hidden');
+            
+            // Giả lập logic kiểm tra
+            const blacklist = ['0123456789', 'scam.com', '1234567890'];
+            
+            if(blacklist.includes(input)) {
+                resultDiv.innerHTML = `<i class="fas fa-exclamation-triangle mr-2"></i> NGUY HIỂM: Thông tin này đã bị báo cáo lừa đảo!`;
+                resultDiv.className = "mt-6 p-4 rounded-lg font-bold text-center bg-red-100 text-red-700 border border-red-200";
+            } else if (input.length < 5) {
+                resultDiv.innerHTML = `<i class="fas fa-question-circle mr-2"></i> NGHI VẤN: Dữ liệu quá ngắn, hãy cẩn thận.`;
+                resultDiv.className = "mt-6 p-4 rounded-lg font-bold text-center bg-yellow-100 text-yellow-700 border border-yellow-200";
+            } else {
+                resultDiv.innerHTML = `<i class="fas fa-check-circle mr-2"></i> AN TOÀN: Chưa có ghi nhận báo cáo cho thông tin này.`;
+                resultDiv.className = "mt-6 p-4 rounded-lg font-bold text-center bg-green-100 text-green-700 border border-green-200";
+            }
+        }
+    </script>
 </body>
 </html>
