@@ -1,0 +1,12 @@
+# Tối ưu SEO cho Điện Lạnh Bách Khoa
+User-agent: *
+Allow: /
+
+# Chặn các thư mục hệ thống và dữ liệu thô
+Disallow: /.github/
+Disallow: /src/
+Disallow: /dich-vu/data/
+Disallow: /test.html
+
+# Đường dẫn đến Sitemap để Bot tìm thấy nhanh nhất
+Sitemap: https://dienlanhbackkhoak3.com.vn/sitemap.xml
